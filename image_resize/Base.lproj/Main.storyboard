@@ -1,14 +1,15 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="image_resize" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +17,52 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tJf-sA-Gb0">
+                                <color key="backgroundColor" red="0.68888300657272339" green="0.71366006135940552" blue="0.73448425531387329" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="Lfr-rz-1rB"/>
+                                    <constraint firstAttribute="height" constant="231" id="wk4-3P-JlJ"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bNC-F8-ZZz">
+                                <state key="normal" title="画像選択"/>
+                                <connections>
+                                    <action selector="tapSelectImageBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="htk-1W-3xS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1dh-JO-QBo">
+                                <state key="normal" title="画像リサイズ"/>
+                                <connections>
+                                    <action selector="tapResizeImageBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hG0-0i-z5d"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="size" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GHB-Oe-tvV">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="1dh-JO-QBo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="YUS-wm-KMP"/>
+                            <constraint firstItem="GHB-Oe-tvV" firstAttribute="top" secondItem="1dh-JO-QBo" secondAttribute="bottom" constant="29" id="Z4g-u9-0qY"/>
+                            <constraint firstItem="bNC-F8-ZZz" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="17" id="aO8-Ac-Vc3"/>
+                            <constraint firstItem="tJf-sA-Gb0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bE2-zi-4BD"/>
+                            <constraint firstItem="1dh-JO-QBo" firstAttribute="top" secondItem="tJf-sA-Gb0" secondAttribute="bottom" constant="33" id="bpl-7X-Sd1"/>
+                            <constraint firstItem="bNC-F8-ZZz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dPF-YV-dx0"/>
+                            <constraint firstItem="tJf-sA-Gb0" firstAttribute="top" secondItem="bNC-F8-ZZz" secondAttribute="bottom" constant="30" id="ryY-Jw-4qu"/>
+                            <constraint firstItem="GHB-Oe-tvV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zWg-lN-9G4"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="tJf-sA-Gb0" id="jOf-v3-blR"/>
+                        <outlet property="sizeLabel" destination="GHB-Oe-tvV" id="7uR-sK-ZQP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="140" y="137.18140929535232"/>
         </scene>
     </scenes>
 </document>

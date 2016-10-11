@@ -47,6 +47,7 @@
 		D6049D841DABB87F00A78367 /* image_resizeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = image_resizeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6049D881DABB87F00A78367 /* image_resizeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = image_resizeUITests.swift; sourceTree = "<group>"; };
 		D6049D8A1DABB87F00A78367 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D6049D961DABBDC400A78367 /* image_resize.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = image_resize.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +98,7 @@
 		D6049D671DABB87F00A78367 /* image_resize */ = {
 			isa = PBXGroup;
 			children = (
+				D6049D961DABBDC400A78367 /* image_resize.entitlements */,
 				D6049D681DABB87F00A78367 /* AppDelegate.swift */,
 				D6049D6A1DABB87F00A78367 /* ViewController.swift */,
 				D6049D6C1DABB87F00A78367 /* Main.storyboard */,
@@ -193,7 +195,13 @@
 				TargetAttributes = {
 					D6049D641DABB87F00A78367 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 8RMNYW4KE5;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					D6049D781DABB87F00A78367 = {
 						CreatedOnToolsVersion = 8.0;
@@ -410,6 +418,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = image_resize/image_resize.entitlements;
+				DEVELOPMENT_TEAM = 8RMNYW4KE5;
 				INFOPLIST_FILE = image_resize/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gnkmr.image-resize";
@@ -422,6 +432,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = image_resize/image_resize.entitlements;
+				DEVELOPMENT_TEAM = 8RMNYW4KE5;
 				INFOPLIST_FILE = image_resize/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gnkmr.image-resize";
