@@ -29,7 +29,7 @@ class ViewController: UIViewController {
     @IBAction func tapResizeImageBtn(_ sender: AnyObject) {
         print("imageView.image", imageView.image)
         
-        imageView.image = imageView.image?.resize(size: CGSize(width: 200, height: 200))
+        imageView.image = imageView.image?.resize(size: CGSize(width: 200, height: 50))
         showImageSize()
     }
     override func viewDidLoad() {
@@ -64,10 +64,10 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
 extension UIImage {
     
     func resize(size: CGSize) -> UIImage {
-//        let widthRatio = size.width / self.size.width
-//        let heightRatio = size.height / self.size.height
-//        let ratio = (widthRatio < heightRatio) ? widthRatio : heightRatio
-        let resizedSize = size
+        let widthRatio = size.width / self.size.width
+        let heightRatio = size.height / self.size.height
+        let ratio = (widthRatio < heightRatio) ? widthRatio : heightRatio
+        let resizedSize = CGSize(width: (self.size.width * ratio), height: (self.size.height * ratio))
         UIGraphicsBeginImageContext(resizedSize)
         draw(in: CGRect(x: 0, y: 0, width: resizedSize.width, height: resizedSize.height))
         let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
